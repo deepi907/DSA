@@ -1,0 +1,19 @@
+let arr = [2, 3, 4, 5];
+function insertAtFirst(arr, element) {
+    arr.splice(0, 0, element);
+    return arr;
+}
+
+function insertAtLast(arr, element) {
+    arr.push(element);
+    return arr;
+}
+
+
+var elementFirst = prompt(" insert at the beginning:");
+var elementLast = prompt(" insert at the end:");
+
+
+console.log(" after inserting", elementFirst, "at the beginning and", elementLast, "at the end:", 
+            insertAtLast(insertAtFirst(arr.slice(), elementFirst), elementLast));
+
