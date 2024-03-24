@@ -1,4 +1,3 @@
-
 function calculate(operation, x, y) {
     if (operation === 'add') {
         return x + y;
@@ -7,17 +6,23 @@ function calculate(operation, x, y) {
     } else if (operation === 'multiply') {
         return x * y;
     } else if (operation === 'divide') {
-        if (y !== 0) {
-            return x / y;
-        } else {
-            return 'Error: Division by zero';
-        }
+        return (y !== 0) ? x / y : 'Error: Division by zero';
     } else {
         return 'Error: Invalid operation';
     }
 }
 
-var x = parseFloat(prompt("Enter the first number:"));
-var y = parseFloat(prompt("Enter the second number:"));
+while (true) {
+    var x = parseFloat(prompt("Enter the first number:"));
+    var y = parseFloat(prompt("Enter the second number:"));
 
-console.log("Addition:", calculate('add', x, y), "Subtraction:", calculate('subtract', x, y), "Multiplication:", calculate('multiply', x, y), "Division:", calculate('divide', x, y));
+    var operation = prompt("What operation do you want to perform? (add/subtract/multiply/divide)");
+
+    console.log("Result:", calculate(operation, x, y));
+
+    var continueInput = prompt("Do you want to continue? (yes/no):");
+    if (continueInput.toLowerCase() !== 'yes') {
+        break;
+    }
+}
+
