@@ -13,8 +13,24 @@ function calculate(operation, x, y) {
     }
 }
 
-var x = parseFloat(prompt("Enter the first number:"));
-var y = parseFloat(prompt("Enter the second number:"));
+while (true) {
+    var x = parseFloat(prompt("Enter the first number (or type 'stop' to end):"));
+    if (isNaN(x)) break; // Exit the loop if the input is not a number or 'stop'
 
-console.log("Addition:", calculate('add', x, y), "Subtraction:", calculate('subtract', x, y), "Multiplication:", calculate('multiply', x, y), "Division:", calculate('divide', x, y));
+    var y = parseFloat(prompt("Enter the second number:"));
 
+    var operation = prompt("Enter the operation (add/subtract/multiply/divide):");
+
+    var result;
+    switch (operation) {
+        case 'add':
+        case 'subtract':
+        case 'multiply':
+        case 'divide':
+            result = calculate(operation, x, y);
+            console.log("Result:", result);
+            break;
+        default:
+            console.log("Error: Invalid operation");
+    }
+}
